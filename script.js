@@ -1,59 +1,58 @@
-let input = document.querySelector('#ip');
-let output = document.querySelector('#output');
-let Button = document.querySelector('#btn');
+const input = document.getElementById("ip");
+const output = document.getElementById("output");
+const btn = document.getElementById("btn");
 
-Button.addEventListener('click', () => {
-    return (
-      new Promise((resolve, reject) => {
+// Add event listener to the button
+btn.addEventListener("click", () => {
+  // Parse the input value as a number
+  const initialValue = parseInt(input.value);
+
+  // Create a promise that resolves after 2 seconds with the initial value
+  const initialPromise = new Promise(resolve => {
+    setTimeout(() => {
+      resolve(initialValue);
+    }, 2000);
+  });
+
+  // Chain promises to perform operations
+  initialPromise
+    .then(number => {
+      output.textContent = `Result: ${number}`;
+      return new Promise(resolve => {
         setTimeout(() => {
-          resolve(Number(input.value));
-        }, 2000);
-      })
-        .then((res) => {
-          output.textContent = `Result ${res}`;
-          console.log("input number", res);
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve(res * 2);
-            }, 1000);
-          });
-        })
-        .then((res) => {
-          output.textContent = `Result ${res}`;
-          console.log("for multiply", res);
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve(res - 3);
-            }, 1000);
-          });
-        })
-        .then((res) => {
-          output.textContent = `Result ${res}`;
-          console.log("for subtract", res);
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve(res / 2);
-            }, 1000);
-          });
-        })
-        .then((res) => {
-            console.log("for divide", res);
-          output.textContent = `Result ${res}`;
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve(res + 10);
-            }, 1000);
-          });
-        })
-        .then((res) => {
-          output.textContent = `Final Result ${res}`;
-          // console.log("for addition", res);
-          //   setTimeout(() => {
-              
-          //   }, 1000);
-        })
-        .catch((err) => {
-          console.log("error", err);
-        })
-    );
+          resolve(number * 2);
+        }, 1000);
+      });
+    })
+    .then(number => {
+      output.textContent = `Result: ${number}`;
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(number - 3);
+        }, 1000);
+      });
+    })
+    .then(number => {
+      output.textContent = `Result: ${number}`;
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(number / 2);
+        }, 1000);
+      });
+    })
+    .then(number => {
+      output.textContent = Result: ${number};
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(number + 10);
+        }, 1000);
+      });
+    })
+    .then(finalResult => {
+      output.textContent = Final Result: ${finalResult};
+    })
+    .catch(error => {
+      // Handle errors if any
+      console.error("An error occurred:", error);
+    });
 });
