@@ -46,11 +46,11 @@ Button.addEventListener('click', () => {
           });
         })
         .then((res) => {
-          console.log("for addition", res);
-            setTimeout(() => {
-                output.textContent = `Final Result ${res}`;
+          output.textContent = `Final Result ${res}`;
+          // console.log("for addition", res);
+          //   setTimeout(() => {
               
-            }, 2000);
+          //   }, 1000);
         })
         .catch((err) => {
           console.log("error", err);
