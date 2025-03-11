@@ -41,7 +41,7 @@ btn.addEventListener("click", () => {
       });
     })
     .then(number => {
-      output.textContent = Result: ${number};
+      output.textContent = `Result: ${number}`;
       return new Promise(resolve => {
         setTimeout(() => {
           resolve(number + 10);
@@ -49,7 +49,7 @@ btn.addEventListener("click", () => {
       });
     })
     .then(finalResult => {
-      output.textContent = Final Result: ${finalResult};
+      output.textContent = `Final Result: ${finalResult}`;
     })
     .catch(error => {
       // Handle errors if any
