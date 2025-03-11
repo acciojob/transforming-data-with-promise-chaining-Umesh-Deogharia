@@ -3,7 +3,7 @@ let output = document.querySelector("#output");
 let button = document.querySelector("#btn");
 
 button.addEventListener("click", () => {
-  const initialValue = ParseInt(input.value);
+  const initialValue = parseInt(input.value);
   const initialPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(initialValue);
