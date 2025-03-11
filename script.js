@@ -7,21 +7,19 @@ Button.addEventListener('click', () => {
       new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(Number(input.value));
-        }, 4000);
+        }, 2000);
       })
-
         .then((res) => {
-          output.innerText = `Result ${res}`;
+          output.textContent = `Result ${res}`;
           console.log("input number", res);
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve(res * 2);
-            }, 4000);
+            }, 1000);
           });
         })
-
         .then((res) => {
-          output.innerText = `Result ${res}`;
+          output.textContent = `Result ${res}`;
           console.log("for multiply", res);
           return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -30,7 +28,7 @@ Button.addEventListener('click', () => {
           });
         })
         .then((res) => {
-          output.innerText = `Result ${res}`;
+          output.textContent = `Result ${res}`;
           console.log("for subtract", res);
           return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -40,18 +38,17 @@ Button.addEventListener('click', () => {
         })
         .then((res) => {
             console.log("for divide", res);
-          output.innerText = `Result ${res}`;
+          output.textContent = `Result ${res}`;
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve(res + 10);
             }, 1000);
           });
         })
-        
         .then((res) => {
           console.log("for addition", res);
             setTimeout(() => {
-                output.innerText = `Final Result ${res}`;
+                output.textContent = `Final Result ${res}`;
               
             }, 2000);
         })
