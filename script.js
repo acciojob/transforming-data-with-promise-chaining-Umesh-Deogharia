@@ -7,7 +7,7 @@ Button.addEventListener('click', () => {
       new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(Number(input.value));
-        }, 2000);
+        }, 4000);
       })
 
         .then((res) => {
@@ -16,7 +16,7 @@ Button.addEventListener('click', () => {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve(res * 2);
-            }, 2000);
+            }, 4000);
           });
         })
 
